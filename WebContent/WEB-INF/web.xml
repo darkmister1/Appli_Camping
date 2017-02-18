@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>Petanque</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>AjoutJoueur</servlet-name>
+    <servlet-class>com.petanque.servlets.AddJoueur</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjoutJoueur</servlet-name>
+    <url-pattern>/ajout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AfficheJoueur</servlet-name>
+    <servlet-class>com.petanque.servlets.AfficheJoueur</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AfficheJoueur</servlet-name>
+    <url-pattern>/affiche</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CreerDoublettes</servlet-name>
+    <servlet-class>com.petanque.servlets.CreerDoublettes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreerDoublettes</servlet-name>
+    <url-pattern>/creation</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AjouterScore</servlet-name>
+    <servlet-class>com.petanque.servlets.AjouterScore</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AjouterScore</servlet-name>
+    <url-pattern>/score</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AfficheScores</servlet-name>
+    <servlet-class>com.petanque.servlets.AfficheScores</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AfficheScores</servlet-name>
+    <url-pattern>/affiche_score</url-pattern>
+  </servlet-mapping>
+</web-app>
