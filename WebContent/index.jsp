@@ -20,5 +20,8 @@
 	<form method="GET" action="affiche_score">
 		<input type="submit" value="Afficher les resultats" />
 	</form>
+	<form method="GET" action="affiche_tirage">
+		<input type="submit" value="Afficher le tirage" />
+	</form>
 </body>
 </html>

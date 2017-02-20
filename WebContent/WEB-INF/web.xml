@@ -44,4 +44,12 @@
     <servlet-name>AfficheScores</servlet-name>
     <url-pattern>/affiche_score</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Tirage</servlet-name>
+    <servlet-class>com.petanque.servlets.Tirage</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Tirage</servlet-name>
+    <url-pattern>/affiche_tirage</url-pattern>
+  </servlet-mapping>
 </web-app>

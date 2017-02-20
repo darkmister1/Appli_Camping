@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.petanque.beans.Doublette;
+import com.petanque.beans.Joueur;
 import com.petanque.beans.TirageEquipe;
 
 /**
@@ -57,18 +58,44 @@ public class Tirage extends HttpServlet {
 			rs.last();
 			nombre_doublette = rs.getInt("id");
 			rs.beforeFirst();
-			List<Tirage> tirage_complet = new ArrayList<Tirage>();
+			ArrayList<TirageEquipe> tirage_complet = new ArrayList<TirageEquipe>();
 			//Traitement des resultats
+			int j = 1;
 			while (rs.next()) {
-				ArrayList<Integer> tirage = new ArrayList<Integer>();				
-				for (int i = 1; i<nombre_doublette; i++) {
-					tirage.add(i);
-				}
-				int elem = tirage.indexOf(rs.getInt("id"));
-				tirage.remove(elem);
+				ArrayList<Integer> tirage = new ArrayList<Integer>();
 				TirageEquipe t = new TirageEquipe();
 				Doublette d = new Doublette();
+				Joueur j1 = new Joueur();
+				Joueur j2 = new Joueur();
+				for (int i = 1; i<=nombre_doublette; i++) {
+					tirage.add(i);
+					System.out.println("Add :" + i);
+				}
+				int elem = tirage.indexOf(rs.getInt("id"));
+				System.out.println("Elem " + elem);
+				tirage.remove(elem);
+		
+				String nom1 = rs.getString("nom1");
+				String nom2 = rs.getString("nom2");
+				String prenom1 = rs.getString("prenom1");
+				String prenom2 = rs.getString("prenom2");
+				
+				j1.set_nomJoueur(nom1);
+				j1.set_prenomJoueur(prenom1);
+				
+				j2.set_nomJoueur(nom2);
+				j2.set_prenomJoueur(prenom2);
+				
+				d.set_joueur1(j1);
+				d.set_joueur2(j2);
+				d.set_numeroDoublette(j);
+				
+				t.set_doublette(d);
 				t.set_tableau_tirage(tirage);
+				
+				tirage_complet.add(t);
+				tirage.clear();
+				j = j + 1;
 			}
 			request.setAttribute("tableau_tirage", tirage_complet);			
 			
@@ -97,7 +124,7 @@ public class Tirage extends HttpServlet {
 	            }
 	        }
 		}
-		this.getServletContext().getRequestDispatcher("/afficher_scores.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/afficher_tirage.jsp").forward(request, response);
 		
 	}
 
